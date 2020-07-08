@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel= "stylesheet" href="css/bootstrap.min.css">
+    <link rel= "stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1>Bienvenidos a mi Aplicacion  </h1>
+        </div>
+        <div id="salir">
+            <button class="btn btn-outline-danger" id ="btnSalir">Salir</button>
+         </div>
+    </div>
+    <script>
+
+         window.addEventListener('load', function(){
+             if(localStorage.getItem('sesion') == null){
+                 window.location.replace('./index.html','_self');
+                }
+            })
+
+
+        const boton = document.getElementById('btnSalir');
+
+        boton.addEventListener('click', function(e){
+            e.preventDefault();
+            localStorage.removeItem('sesion');
+            window.open('./index.html','self');
+        });
+    </script>
+</body>
+</html>
+
